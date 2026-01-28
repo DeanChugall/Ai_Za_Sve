@@ -1,0 +1,78 @@
+#################################################
+# Project metadata
+#################################################
+
+[tool.poetry]
+name = "aizasve"
+version = "0.0.1"
+description = ""
+authors = ["DeanChugall <info@dejan.pro>"]
+readme = "README.md"
+package-mode = true
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+loguru = "^0.7.2"
+pytest = "^8.3.3"
+pre-commit = "^4.0.1"
+ruff = "^0.7.0"
+
+
+[project.urls]
+Repository = "https://github.com/DeanChugall/Ai_Za_Sve"
+
+
+#################################################
+# Ruff config
+#################################################
+
+[tool.ruff]
+
+line-length = 160
+
+# Enable Pyflakes `E` and `F` codes by default
+lint.select = ["E", "F", "I001", "PT", "UP", "B", "SIM", "I", "C4"]
+lint.ignore = ["E501", "F811", "SIM102"]
+respect-gitignore = true
+
+lint.per-file-ignores = {}
+
+# Allow unused variables when underscore-prefixed
+lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Python 3.12
+target-version = "py312"
+
+[tool.ruff.lint.mccabe]
+# Unlike Flake8, default to a complexity level of 10
+max-complexity = 10
+
+#################################################
+# Pytest config
+#################################################
+
+[tool.pytest.ini_options]
+minversion = "8.3.3"
+addopts = "-s -p no:warnings"
+python_files = [
+    "tests.py",
+    "test_*.py",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning:jupyter_client.connect",
+]
+# ==== Coverage ====
+[tool.coverage.run]
+include = ["contentpulse/**"]
+omit = ["*/migrations/*", "*/tests/*"]
+plugins = ["django_coverage_plugin"]
+
+#################################################
+# Setuptools config
+#################################################
+
+[tool.setuptools.packages.find]
+where = ["."]  # ["."] by default
