@@ -1,4 +1,4 @@
-exclude: '^docs/|/migrations/|devcontainer.json|.+\.html$'
+exclude: '^docs/|/migrations/|devcontainer.json|.+\.html$|.+\.excalidraw$'
 default_stages: [pre-commit, pre-push]
 
 default_language_version:
