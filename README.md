@@ -32,4 +32,14 @@ git add .
 git commit -m "message"
 git push origin main
 
+# Create the branch on your local machine and switch in this branch :
+git checkout -b <NEW_BRANCH_NAME>
+# Push the branch on github :
+git push origin [name_of_your_new_branch]
+# see all the branches
+git branch -a
+
+# push to branch
+git push [name_of_your_branch]
+
 ```
