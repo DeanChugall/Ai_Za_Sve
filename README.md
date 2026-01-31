@@ -6,6 +6,12 @@ Cilj/Opis projekta....
 
 # Useful Commands:
 
+### Pre-Commit:
+
+```bash
+pre-commit run --all-files
+```
+
 ## Poetry
 
 ```bash
