@@ -38,8 +38,12 @@ git checkout -b <NEW_BRANCH_NAME>
 git push origin [name_of_your_new_branch]
 # see all the branches
 git branch -a
-
 # push to branch
 git push [name_of_your_branch]
-
+# Delete a branch on your local filesystem :
+git branch -d [name_of_your_new_branch]
+# To force the deletion of local branch on your filesystem :
+git branch -D [name_of_your_new_branch]
+# Delete the branch on github:
+git push origin :[name_of_your_new_branch]`
 ```
