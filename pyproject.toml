@@ -2,18 +2,23 @@
 # Project metadata
 #################################################
 
-[tool.poetry]
+[project]
 name = "aizasve"
 version = "0.0.1"
-description = ""
-authors = ["DeanChugall <info@dejan.pro>"]
+description = "AI Agents"
+authors = [
+    { name = "Dejan Čugalj", email = "info@aizasve.pro" }
+]
+maintainers = [
+   { name = "Dejan Čugalj", email = "info@aizasve.pro" }
+]
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 package-mode = true
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.14"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -25,7 +30,8 @@ ruff = "^0.7.0"
 
 [project.urls]
 Repository = "https://github.com/DeanChugall/Ai_Za_Sve"
-
+Documentation = "https://aizasve.pro/docs"
+Homepage = "https://aizasve.pro"
 
 #################################################
 # Ruff config
@@ -45,8 +51,8 @@ lint.per-file-ignores = {}
 # Allow unused variables when underscore-prefixed
 lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
-# Python 3.12
-target-version = "py312"
+# Python 3.14
+target-version = "py314"
 
 [tool.ruff.lint.mccabe]
 # Unlike Flake8, default to a complexity level of 10
@@ -66,15 +72,14 @@ python_files = [
 filterwarnings = [
     "ignore::DeprecationWarning:jupyter_client.connect",
 ]
-# ==== Coverage ====
-[tool.coverage.run]
-include = ["contentpulse/**"]
-omit = ["*/migrations/*", "*/tests/*"]
-plugins = ["django_coverage_plugin"]
 
 #################################################
-# Setuptools config
+# Setuptools config (for editable installs)
 #################################################
+# Building package
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = ["."]  # ["."] by default
+include = ["aizasve`*"]
