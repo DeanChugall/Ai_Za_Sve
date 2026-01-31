@@ -20,11 +20,8 @@ clean:
 	rm -rf .coverage*
 
 all:
-	pre-commit run --all-files
-
-allp:
 	git add .
-	pre-commit run
+	pre-commit run --all-files
 
 format:
 	ruff format .
